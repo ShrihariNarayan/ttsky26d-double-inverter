@@ -62,9 +62,9 @@ C {lab_wire.sym} 200 110 0 0 {name=p5 sig_type=std_logic lab=VSS
 }
 C {lab_wire.sym} 200 -140 0 0 {name=p3 sig_type=std_logic lab=VDD}
 C {sky130_fd_pr/nfet_01v8.sym} 360 50 0 0 {name=M3
-W=1
+W=20
 L=0.15
-nf=1 
+nf=20
 mult=1
 ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
 pd="expr('2*int((@nf + 1)/2) * (@W / @nf + 0.29)')"
