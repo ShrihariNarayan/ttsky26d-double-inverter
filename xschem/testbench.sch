@@ -13,21 +13,22 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x2=2e-07
-divx=5
+x2=1.9e-07
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
 legendmag=1.0
 node="pin_out
 out
-in"
-color="10 15 11"
+in
+pin_out_parax"
+color="10 15 11 12"
 dataset=-1
 unitx=1
 logx=0
 logy=0
-x1=8.0758323e-16}
+x1=-9.9999991e-09
+divx=5}
 B 2 520 100 1320 500 {flags=graph
 y1=-2.9e-06
 y2=0.0014
@@ -36,8 +37,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=8.0758323e-16
-x2=2e-07
+x1=-9.9999991e-09
+x2=1.9e-07
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -47,8 +48,9 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-color=4
-node=i(vmeas)}
+color="12 11"
+node="i(vmeas1)
+i(vmeas)"}
 N 380 -60 470 -60 {lab=out}
 N 30 -80 80 -80 {lab=in}
 N 380 -40 470 -40 {lab=VSS}
@@ -59,6 +61,16 @@ N 580 -60 580 -40 {lab=out}
 N 470 -60 580 -60 {lab=out}
 N 580 -60 580 -40 {lab=out}
 N 380 -80 440 -80 {lab=#net1}
+N 400 660 490 660 {lab=out_parax}
+N 50 640 100 640 {lab=in}
+N 400 680 490 680 {lab=VSS}
+N 660 680 700 680 {lab=pin_out_parax}
+N 700 680 700 690 {lab=pin_out_parax}
+N 700 680 780 680 {lab=pin_out_parax}
+N 600 660 600 680 {lab=out_parax}
+N 490 660 600 660 {lab=out_parax}
+N 600 660 600 680 {lab=out_parax}
+N 400 640 460 640 {lab=#net2}
 C {devices/launcher.sym} -140 80 0 0 {name=h17 
 descr="Load waves" 
 tclcommand="
@@ -117,3 +129,29 @@ write testbench.raw
 "}
 C {ipin.sym} 30 -80 0 0 {name=p8 lab=in}
 C {devices/ammeter.sym} 440 -110 0 0 {name=vmeas}
+C {double_inverter.sym} 250 660 0 0 {name=x2
+
+schematic=double_inverter_parax
+spice_sym_def="tcleval(.include [file normalize ../mag/double_inverter.sim.spice])"
+tclcommand="textwindow [file normalize ../mag/double_inverter.sim.spice]"}
+C {lab_wire.sym} 460 580 0 0 {name=p5 sig_type=std_logic lab=VDD}
+C {lab_wire.sym} 490 680 2 0 {name=p9 sig_type=std_logic lab=VSS
+}
+C {lab_wire.sym} 600 660 0 0 {name=p10 sig_type=std_logic lab=out_parax
+}
+C {res.sym} 630 680 3 0 {name=R2
+value=1k
+footprint=1206
+device=resistor
+m=1}
+C {capa.sym} 700 720 0 0 {name=C2
+m=1
+value=1p
+footprint=1206
+device="ceramic capacitor"}
+C {gnd.sym} 700 750 0 0 {name=l6 lab=GND}
+C {lab_wire.sym} 780 680 2 0 {name=p11 sig_type=std_logic lab=pin_out_parax
+
+}
+C {ipin.sym} 50 640 0 0 {name=p12 lab=in}
+C {devices/ammeter.sym} 460 610 0 0 {name=vmeas1}
