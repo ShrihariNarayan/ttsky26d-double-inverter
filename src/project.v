@@ -5,7 +5,7 @@
 
 `default_nettype none
 
-module tt_um_example (
+module tt_um_shrihari_double_inverter (
     input  wire       VGND,
     input  wire       VDPWR,    // 1.8v power supply
 //    input  wire       VAPWR,    // 3.3v power supply
@@ -19,5 +19,12 @@ module tt_um_example (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
+
+    double_inverter double_inverter_0 (
+        .VDD(VDPWR),
+        .VSS(VGND),
+        .input_DI(ua[1]),
+        .output_DI(ua[0])
+    );
 
 endmodule
