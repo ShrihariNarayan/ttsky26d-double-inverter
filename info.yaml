@@ -2,8 +2,8 @@
 project:
   title:        "Double Inverter"      # Project title
   author:       "Shrihari"      # Your name
-  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  "Two cascaded CMOS inverters (analog warm-up design)"      # One line description of what your project does
+  discord:      "shriharinarayan"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description:  "Two cascaded CMOS inverters"                                     # One line description of what your project does
   language:     "Analog" # other examples include Verilog, Amaranth, VHDL, etc
   clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
 
